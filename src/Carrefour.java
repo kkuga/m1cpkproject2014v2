@@ -12,6 +12,7 @@ public class Carrefour {
 
     public Carrefour(int nbRoutesSortantes) {
         routesSortantes = new ArrayList<Route>(nbRoutesSortantes);
+
     }
 
     public Carrefour(List<Route> routesSortantes) {

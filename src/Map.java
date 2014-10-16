@@ -10,6 +10,7 @@ public class Map {
 
     public Map()
     {
+
         //on instancie les routes
 
         for(int i = 1; i <= 7; i++)
@@ -40,13 +41,22 @@ public class Map {
 
         //on précise les routes suivant en fonction du carrefour
 
-        for(int i = 1; 1 <= 4; i++)
+        for(int i = 1; 1 <= 6; i++)
         {
-            carrefours[i].addRoute(routes[i+1]);
+            if(i==5)
+            {
+                carrefours[i].addRoute(routes[1]);
+            }
+            else if(i == 6)
+            {
+                carrefours[i].addRoute(routes[6]);
+                carrefours[i].addRoute(routes[7]);
+            }
+            else {
+
+                carrefours[i].addRoute(routes[i + 1]);
+            }
         }
-
-        carrefours[5].addRoute(routes[1]);
-
 
     }
 
