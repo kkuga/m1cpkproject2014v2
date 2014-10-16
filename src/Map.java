@@ -2,35 +2,52 @@
  * Created by philprat on 09/10/2014.
  */
 
-import java.util.Arrays;
-import java.util.LinkedList;
-
 public class Map {
 
-    public Route[][] routes;
 
+    private Route[] routes;
+    private Carrefour[] carrefours;
 
-    public Map(int [][]Passage, int LongeurRoute[][])
+    public Map()
     {
-        int longueur = Passage.length;
-        int largeur = Passage[0].length;
+        //on instancie les routes
 
-        routes = new Route[longueur][largeur];
-
-        for(int i = 0; i < longueur; i++)
+        for(int i = 1; i <= 7; i++)
         {
-            for(int j = 0; j < largeur; j++)
-                if (Passage[i][j] != 0) {
-                    Route route = new Route(i, j, LongeurRoute[i][j]);
-                    routes[i][j] = route;
-                }
+            Route route = new Route(10);
+            routes[i] = route;
         }
+
+        //on instancie les carrefours
+        for(int i = 1; i <= 5; i++)
+        {
+            Carrefour carrefour = new Carrefour(1);
+            carrefours[i] = carrefour;
+        }
+
+        Carrefour carrefour = new Carrefour(2);
+        carrefours[6] = carrefour;
+
+
+        //on alloue les carrefours aux routes
+        for(int i = 1; i <= 4; i++)
+        {
+            routes[i].setCarrefour(carrefours[i]);
+        }
+
+        routes[5].setCarrefour(carrefours[6]);
+        routes[6].setCarrefour(carrefours[5]);
+
+        //on précise les routes suivant en fonction du carrefour
+
+        for(int i = 1; 1 <= 4; i++)
+        {
+            carrefours[i].addRoute(routes[i+1]);
+        }
+
+        carrefours[5].addRoute(routes[1]);
+
+
     }
 
-    @Override
-    public String toString() {
-        return "Map{" +
-                "routes=" + Arrays.toString(routes) +
-                '}';
-    }
 }
