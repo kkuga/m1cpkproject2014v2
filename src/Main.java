@@ -10,7 +10,8 @@ public class Main {
         int A[][] = new int [100][50];
         int B[][] = new int [100][50];
 
-        System.out.println("kuga");
+        System.out.println("cle");
+
         Tableau a = new Tableau(A);
         Tableau b = new Tableau(B);
 
