@@ -31,5 +31,6 @@ public class Carrefour {
     public void addRoute(Route route)
     {
         routesSortantes.add(route);
+        System.out.println("hello from philippe");
     }
 }
