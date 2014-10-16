@@ -1,3 +1,8 @@
+package environnement;
+
+import environnement.Carrefour;
+import environnement.Maillon;
+
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -9,22 +14,20 @@ public class Route {
     private LinkedList<Maillon> maillons;
     private int longueur;
     private Carrefour carrefour;
+    private Direction direction;
 
-    public Route(int longueur) {
-
+    public Route(int longueur, Direction direction) {
+        this.direction = direction;
         this.longueur = longueur;
         this.maillons = new LinkedList();
         for(int i=0;i<this.longueur;i++) {
             this.maillons.add(new Maillon());
         }
-
     }
 
     public LinkedList<Maillon> getMaillons() {
         return maillons;
     }
-
-
 
     public void setLongueur(int longueur) {
         this.longueur = longueur;
@@ -36,13 +39,10 @@ public class Route {
 
     @Override
     public String toString() {
-        return "projet1.Route{" +
-                "maillons=" + maillons +
-                ", longueur=" + longueur +
-                '}';
+        return super.toString();
     }
 
-    public boolean estDernierePortion(Maillon maillon)
+    public boolean estDernierMaillon(Maillon maillon)
     {
         return maillons.getLast() == maillon;
     }
@@ -67,5 +67,9 @@ public class Route {
 
     public void setCarrefour(Carrefour carrefour) {
         this.carrefour = carrefour;
+    }
+
+    public Carrefour getCarrefour() {
+        return carrefour;
     }
 }

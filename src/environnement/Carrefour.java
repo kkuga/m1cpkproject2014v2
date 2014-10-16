@@ -1,5 +1,7 @@
+package environnement;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -10,9 +12,13 @@ public class Carrefour {
 
     private List<Route> routesSortantes;
 
-    public Carrefour(int nbRoutesSortantes) {
-        routesSortantes = new ArrayList<Route>(nbRoutesSortantes);
+    public Carrefour(Route route) {
+        routesSortantes = new ArrayList<Route>();
+        routesSortantes.add(route);
+    }
 
+    public Carrefour(ArrayList<Route> routes) {
+        routesSortantes = new ArrayList<Route>(routes);
     }
 
     public Carrefour(List<Route> routesSortantes) {
@@ -31,6 +37,5 @@ public class Carrefour {
     public void addRoute(Route route)
     {
         routesSortantes.add(route);
-        System.out.println("hello from philippe");
     }
 }
