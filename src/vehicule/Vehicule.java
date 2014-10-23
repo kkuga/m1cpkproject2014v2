@@ -36,7 +36,7 @@ public class Vehicule {
 
     }
 
-    public Maillon getPosition() {
-        return position;
+    public Maillon getPositionSuivante() {
+        return position.getMaillon();
     }
 }

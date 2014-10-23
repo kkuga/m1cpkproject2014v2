@@ -20,7 +20,7 @@ public class ThreadVehicule extends Thread {
         while(!isInterrupted())
         {
 
-            vehicule.avancer(vehicule.getPosition().getMaillon());
+            vehicule.avancer(vehicule.getPositionSuivante());
             try{
                 sleep(100);
             }catch (Exception e)
