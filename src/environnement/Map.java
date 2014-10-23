@@ -53,8 +53,8 @@ public class Map {
         routes[6].setCarrefour(carrefours[0]);
     }
 
-    public Route getRouteAleatoire() {
+    public Maillon getMaillonAleatoireFromRouteAleatoire() {
         Random r = new Random();
-        return routes[r.nextInt(NBROUTES)];
+        return routes[r.nextInt(NBROUTES)].getMallionAleatoire();
     }
 }

@@ -6,8 +6,11 @@ package environnement;
 public class Maillon {
 
     private boolean isEmpty;
+    private Route route;
 
-    public Maillon() {
+    public Maillon(Route route)
+    {
+        this.route = route;
         isEmpty = true;
     }
 
@@ -21,5 +24,18 @@ public class Maillon {
 
     public boolean isEmpty() {
         return isEmpty;
+    }
+
+    public Route getRoute() {
+        return route;
+    }
+
+    public Maillon getMaillon() {
+
+        if(getRoute().estDernierMaillon(this)) {
+            return route.getCarrefour().getRouteAleatoire().getPremierMallion();
+        } else {
+            return route.getNextMaillon(this);
+        }
     }
 }

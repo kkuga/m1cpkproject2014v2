@@ -9,20 +9,24 @@ public class ThreadVehicule extends Thread {
 
     private Vehicule vehicule;
 
+
     public ThreadVehicule(Vehicule vehicule) {
         this.vehicule = vehicule;
+
     }
 
     public void run()
     {
         while(!isInterrupted())
         {
-            vehicule.avancer();
+
+            vehicule.avancer(vehicule.getPosition().getMaillon());
             try{
                 sleep(100);
             }catch (Exception e)
             {
-                e.printStackTrace();
+                System.out.println("programme interrompu");
+                System.out.println(e);
             }
                
         }

@@ -1,8 +1,5 @@
 package environnement;
 
-import environnement.Carrefour;
-import environnement.Maillon;
-
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -20,7 +17,7 @@ public class Route {
         this.longueur = longueur;
         this.maillons = new LinkedList();
         for(int i=0;i<this.longueur;i++) {
-            this.maillons.add(new Maillon());
+            this.maillons.add(new Maillon(this));
         }
     }
 
