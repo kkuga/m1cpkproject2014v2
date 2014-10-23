@@ -1,7 +1,4 @@
 package environnement;
-
-import environnement.Carrefour;
-
 import java.util.Random;
 
 /**
@@ -22,8 +19,8 @@ import java.util.Random;
 public class Map {
     private static int NBROUTES = 7;
     private static int NBCARREFOUR = 6;
-    private Route[] routes;
-    private Carrefour[] carrefours;
+    private Route[] routes = new Route[NBROUTES];
+    private Carrefour[] carrefours = new Carrefour[NBCARREFOUR];
 
     public Map() {
         //on instancie les routes

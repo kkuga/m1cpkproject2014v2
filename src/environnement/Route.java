@@ -14,10 +14,9 @@ public class Route {
     private LinkedList<Maillon> maillons;
     private int longueur;
     private Carrefour carrefour;
-    private Direction direction;
 
     public Route(int longueur, Direction direction) {
-        this.direction = direction;
+        Direction direction1 = direction;
         this.longueur = longueur;
         this.maillons = new LinkedList();
         for(int i=0;i<this.longueur;i++) {
