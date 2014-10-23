@@ -2,6 +2,8 @@ package environnement;
 
 import environnement.Carrefour;
 
+import java.util.Random;
+
 /**
  * Created by philprat on 09/10/2014.
  */
@@ -52,5 +54,10 @@ public class Map {
         routes[4].setCarrefour(carrefours[1]);
         routes[5].setCarrefour(carrefours[5]);
         routes[6].setCarrefour(carrefours[0]);
+    }
+
+    public Route getRouteAleatoire() {
+        Random r = new Random();
+        return routes[r.nextInt(NBROUTES)];
     }
 }
