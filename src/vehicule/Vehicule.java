@@ -8,15 +8,17 @@ import environnement.Maillon;
 public class Vehicule {
 
     private Maillon position;
+    private Maillon positionSuivante;
 
     public Vehicule(Maillon position) {
 
         this.position = position;
+        this.positionSuivante = position.getMaillon();
     }
 
     public synchronized void avancer(Maillon maillon)
     {
-        while(!position.isEmpty())
+        while(!positionSuivante.isEmpty())
         {
             try{
                 this.wait();
@@ -28,7 +30,7 @@ public class Vehicule {
         Maillon tmp = position;
 
         this.position = maillon;
-        this.position.voitureIn();
+        this.positionSuivante.voitureIn();
 
         tmp.voitureOut();
 

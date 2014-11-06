@@ -19,16 +19,15 @@ public class ThreadVehicule extends Thread {
     {
         while(!isInterrupted())
         {
-
-            vehicule.avancer(vehicule.getPositionSuivante());
-            try{
-                sleep(100);
-            }catch (Exception e)
-            {
-                System.out.println("programme interrompu");
-                System.out.println(e);
+            synchronized (this.vehicule) {
+                vehicule.avancer(vehicule.getPositionSuivante());
+                try {
+                    sleep(100);
+                } catch (Exception e) {
+                    System.out.println("programme interrompu");
+                    System.out.println(e);
+                }
             }
-               
         }
     }
 }
