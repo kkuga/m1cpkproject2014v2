@@ -18,14 +18,12 @@ public class Maillon {
         isEmpty = false;
     }
 
-    public void voitureOut()
+    public synchronized void voitureOut()
     {
         isEmpty = true;
 
         notifyAll();
     }
-
-    public boolean isEmpty() { return isEmpty; }
 
     public synchronized void ready()
     {
@@ -35,9 +33,8 @@ public class Maillon {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
-        }
-
+       }
+        voitureIn();
     }
 
     public Route getRoute() {

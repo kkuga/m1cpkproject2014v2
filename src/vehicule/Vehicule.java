@@ -19,10 +19,9 @@ public class Vehicule {
     {
 
         Maillon tmp = position;
+        maillon.ready();
 
         this.position = maillon;
-        this.position.voitureIn();
-
         tmp.voitureOut();
 
     }

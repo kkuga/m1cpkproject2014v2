@@ -9,12 +9,12 @@ import vehicule.Vehicule;
 public class ThreadVehicule extends Thread {
 
     private Vehicule vehicule;
-    private Maillon maillonSuivant;
+
 
 
     public ThreadVehicule(Vehicule vehicule) {
         this.vehicule = vehicule;
-        this.maillonSuivant = this.vehicule.getPositionSuivante();
+
 
     }
 
@@ -22,18 +22,13 @@ public class ThreadVehicule extends Thread {
     {
         while(!isInterrupted())
         {
-            synchronized (this.maillonSuivant) {
+            Maillon maillonSuivant = vehicule.getPositionSuivante();
+            vehicule.avancer(maillonSuivant);
 
-                this.maillonSuivant.ready();
-
-            }
-
-            vehicule.avancer(this.maillonSuivant);
             try {
                 sleep(100);
             } catch (Exception e) {
-                System.out.println("programme interrompu");
-                System.out.println(e);
+                System.out.println(e+"programme interrompu");
             }
         }
     }
