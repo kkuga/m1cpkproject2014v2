@@ -1,5 +1,6 @@
 package Thread;
 
+import environnement.Maillon;
 import vehicule.Vehicule;
 
 /**
@@ -8,10 +9,12 @@ import vehicule.Vehicule;
 public class ThreadVehicule extends Thread {
 
     private Vehicule vehicule;
+    private Maillon maillonSuivant;
 
 
     public ThreadVehicule(Vehicule vehicule) {
         this.vehicule = vehicule;
+        this.maillonSuivant = this.vehicule.getPositionSuivante();
 
     }
 
@@ -19,14 +22,18 @@ public class ThreadVehicule extends Thread {
     {
         while(!isInterrupted())
         {
-            synchronized (this.vehicule) {
-                vehicule.avancer(vehicule.getPositionSuivante());
-                try {
-                    sleep(100);
-                } catch (Exception e) {
-                    System.out.println("programme interrompu");
-                    System.out.println(e);
-                }
+            synchronized (this.maillonSuivant) {
+
+                this.maillonSuivant.ready();
+
+            }
+
+            vehicule.avancer(this.maillonSuivant);
+            try {
+                sleep(100);
+            } catch (Exception e) {
+                System.out.println("programme interrompu");
+                System.out.println(e);
             }
         }
     }
