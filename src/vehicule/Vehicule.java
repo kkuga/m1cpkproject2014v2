@@ -1,6 +1,7 @@
 package vehicule;
 
 import environnement.Maillon;
+import java.lang.String;
 
 /**
  * Created by clément on 13/10/2014.
@@ -30,4 +31,11 @@ public class Vehicule {
         return position.getMaillon();
     }
 
+    @Override
+    public String toString() {
+        return "Vehicule{" +
+                "position=" + position.getNumeroMaillon() +
+                "\t" + position.getNumeroRoute()+
+                '}';
+    }
 }

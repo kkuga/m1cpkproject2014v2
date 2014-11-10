@@ -11,14 +11,17 @@ public class Route {
     private LinkedList<Maillon> maillons;
     private int longueur;
     private Carrefour carrefour;
+    private String nom;
 
-    public Route(int longueur, Direction direction) {
+    public Route(int longueur, Direction direction, String nom) {
         Direction direction1 = direction;
         this.longueur = longueur;
         this.maillons = new LinkedList();
         for(int i=0;i<this.longueur;i++) {
             this.maillons.add(new Maillon(this));
         }
+
+        this.nom = nom;
     }
 
     public LinkedList<Maillon> getMaillons() {
@@ -31,11 +34,6 @@ public class Route {
 
     public int getLongueur() {
         return longueur;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
     }
 
     public boolean estDernierMaillon(Maillon maillon)
@@ -67,5 +65,17 @@ public class Route {
 
     public Carrefour getCarrefour() {
         return carrefour;
+    }
+
+    public int numeroMaillon(Maillon maillon)
+    {
+       return maillons.indexOf(maillon);
+    }
+
+    @Override
+    public String toString() {
+        return "Route{" +
+                "nom='" + nom + '\'' +
+                '}';
     }
 }

@@ -49,4 +49,14 @@ public class Maillon {
             return route.getNextMaillon(this);
         }
     }
+
+    public int getNumeroMaillon()
+    {
+        return route.numeroMaillon(this);
+    }
+
+    public String getNumeroRoute()
+    {
+        return route.toString();
+    }
 }

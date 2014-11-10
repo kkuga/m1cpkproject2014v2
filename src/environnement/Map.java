@@ -8,11 +8,11 @@ import java.util.Random;
 /*
 *             Circuit représenté:
 *
-*           c0 → r0 → c1 → r1 → c2
+*           c0 → r1 → c1 → r2 → c2
 *           ↑           ↑          ↓
-*           r6         r4         r2
+*           r7         r5         r3
 *           ↑           ↑          ↓
-*           c5 ← r5 ← c4 ← r3 ← c3
+*           c5 ← r6 ← c4 ← r4 ← c3
 *
 */
 
@@ -24,13 +24,13 @@ public class Map {
 
     public Map() {
         //on instancie les routes
-        routes[0] = new Route(10, Direction.DROITE);
-        routes[1] = new Route(10, Direction.DROITE);
-        routes[2] = new Route(10, Direction.BAS);
-        routes[3] = new Route(10, Direction.GAUCHE);
-        routes[4] = new Route(10, Direction.HAUT);
-        routes[5] = new Route(10, Direction.GAUCHE);
-        routes[6] = new Route(10, Direction.HAUT);
+        routes[0] = new Route(10, Direction.DROITE, "Route1");
+        routes[1] = new Route(10, Direction.DROITE, "Route2");
+        routes[2] = new Route(10, Direction.BAS, "Route3");
+        routes[3] = new Route(10, Direction.GAUCHE, "Route4");
+        routes[4] = new Route(10, Direction.HAUT, "Route5");
+        routes[5] = new Route(10, Direction.GAUCHE, "Route6");
+        routes[6] = new Route(10, Direction.HAUT, "Route7");
 
         //on instancie les carrefours
         carrefours[0] = new Carrefour(routes[0]);
