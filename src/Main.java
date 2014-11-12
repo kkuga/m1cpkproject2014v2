@@ -1,5 +1,6 @@
 import Thread.ThreadVehicule;
 import environnement.Map;
+import exception.VehiculeException;
 import vehicule.Vehicule;
 
 import java.util.Scanner;
@@ -14,7 +15,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         Map map = new Map();
+
         Vehicule vehicule = new Vehicule(map.getMaillonAleatoireFromRouteAleatoire());
+
         ThreadVehicule threadVehicule = new ThreadVehicule(vehicule);
 
         threadVehicule.start();
