@@ -41,6 +41,11 @@ public class Route {
         return maillons.getLast() == maillon;
     }
 
+    public Maillon getDernierMaillon()
+    {
+        return maillons.getLast();
+    }
+
     public Maillon getPremierMallion()
     {
         return maillons.getFirst();
@@ -74,7 +79,7 @@ public class Route {
 
     @Override
     public String toString() {
-        return "Route{" +
+        return "\t Route{" +
                 "nom='" + nom + '\'' +
                 '}';
     }

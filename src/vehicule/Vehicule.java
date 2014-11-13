@@ -9,11 +9,13 @@ import java.lang.String;
 public class Vehicule {
 
     private Maillon position;
+    private String nom;
 
 
-    public Vehicule(Maillon position) {
+    public Vehicule(Maillon position, String nom) {
 
         this.position = position;
+        this.nom = nom;
     }
 
     public void avancer(Maillon maillon)
@@ -27,14 +29,18 @@ public class Vehicule {
 
     }
 
+    public String getNom() {
+        return nom;
+    }
+
     public Maillon getPositionSuivante() {
         return position.getMaillon();
     }
 
     @Override
     public String toString() {
-        return "Vehicule{" +
-                "position=" + position.getNumeroMaillon() +
+        return "Vehicule{" + this.getNom()+
+                "\t position=" + position.getNumeroMaillon() +
                 "\t" + position.getNumeroRoute()+
                 '}';
     }

@@ -50,6 +50,7 @@ public class Maillon {
         }
     }
 
+
     public int getNumeroMaillon()
     {
         return route.numeroMaillon(this);

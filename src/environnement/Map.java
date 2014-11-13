@@ -22,7 +22,7 @@ public class Map {
     private Route[] routes = new Route[NBROUTES];
     private Carrefour[] carrefours = new Carrefour[NBCARREFOUR];
 
-    public Map() {
+    public Map() throws InterruptedException {
         //on instancie les routes
         routes[0] = new Route(10, Direction.DROITE, "Route1");
         routes[1] = new Route(10, Direction.DROITE, "Route2");
@@ -51,10 +51,18 @@ public class Map {
         routes[4].setCarrefour(carrefours[1]);
         routes[5].setCarrefour(carrefours[5]);
         routes[6].setCarrefour(carrefours[0]);
+
+
     }
 
     public Maillon getMaillonAleatoireFromRouteAleatoire() {
         Random r = new Random();
         return routes[r.nextInt(NBROUTES)].getMallionAleatoire();
+    }
+
+    public Route getRouteAleatoire()
+    {
+        Random r = new Random();
+        return routes[r.nextInt(NBROUTES)];
     }
 }

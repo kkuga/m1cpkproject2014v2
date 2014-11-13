@@ -1,6 +1,5 @@
-import Thread.ThreadVehicule;
+import Thread.*;
 import environnement.Map;
-import exception.VehiculeException;
 import vehicule.Vehicule;
 
 import java.util.Scanner;
@@ -16,16 +15,26 @@ public class Main {
 
         Map map = new Map();
 
-        Vehicule vehicule = new Vehicule(map.getMaillonAleatoireFromRouteAleatoire());
+        Vehicule vehicule = new Vehicule(map.getMaillonAleatoireFromRouteAleatoire(), "Peugeot");
+        Vehicule vehicule2 = new Vehicule(map.getMaillonAleatoireFromRouteAleatoire(), "Citroen");
+        Signalisation signalisation = new Signalisation(map.getRouteAleatoire());
 
         ThreadVehicule threadVehicule = new ThreadVehicule(vehicule);
+        ThreadVehicule threadVehicule2 = new ThreadVehicule(vehicule2);
+
 
         threadVehicule.start();
+        threadVehicule2.start();
+        signalisation.start();
 
         sc.next();
 
         threadVehicule.interrupt();
-        threadVehicule.join();
+        threadVehicule2.interrupt();
+        signalisation.isInterrupted();
 
+        threadVehicule.join();
+        threadVehicule2.join();
+        signalisation.join();
     }
 }
