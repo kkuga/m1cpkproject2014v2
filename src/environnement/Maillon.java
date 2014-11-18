@@ -44,6 +44,11 @@ public class Maillon {
     public Maillon getMaillon() {
 
         if(getRoute().estDernierMaillon(this)) {
+
+            while(route.getCouleurSignalisation() == Feux.rouge)
+            {
+
+            }
             return route.getCarrefour().getRouteAleatoire().getPremierMallion();
         } else {
             return route.getNextMaillon(this);
