@@ -9,13 +9,11 @@ import environnement.Route;
  */
 public class Signalisation extends Thread{
     private Feux couleur;
-    private Route route;
-    private Maillon maillon;
 
-    public Signalisation(Route route) {
+
+    public Signalisation() {
         this.couleur = Feux.vert;
-        this.route = route;
-        maillon = route.getDernierMaillon();
+
     }
 
   public void setCouleur()
@@ -37,7 +35,7 @@ public class Signalisation extends Thread{
             this.setCouleur();
             System.out.println(this.toString());
             try {
-                sleep(10000);
+                sleep(7000);
             } catch (Exception e) {
                 System.out.println(e+"programme interrompu");
             }
