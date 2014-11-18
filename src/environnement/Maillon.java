@@ -47,7 +47,7 @@ public class Maillon {
         {
             /*QUand les deux voitures sont à 9 en position et que le feux est rouge, aucune voiture ne repart */
 
-            while(route.getCouleurSignalisation() == Feux.rouge)/*probleme!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+            while(route.getCouleurSignalisation() == Feux.rouge)/*probleme2!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
             {
 
             }
