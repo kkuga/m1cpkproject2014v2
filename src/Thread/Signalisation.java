@@ -26,6 +26,7 @@ public class Signalisation extends Thread{
       {
           this.couleur = Feux.rouge;
       }
+
   }
 
   public void run()

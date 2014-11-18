@@ -10,11 +10,8 @@ public class ThreadVehicule extends Thread {
 
     private Vehicule vehicule;
 
-
-
     public ThreadVehicule(Vehicule vehicule) {
         this.vehicule = vehicule;
-
 
     }
 
