@@ -1,5 +1,8 @@
 package environnement;
+import Thread.Signalisation;
+
 import java.util.Random;
+
 
 /**
  * Created by philprat on 09/10/2014.
@@ -22,15 +25,15 @@ public class Map {
     private Route[] routes = new Route[NBROUTES];
     private Carrefour[] carrefours = new Carrefour[NBCARREFOUR];
 
-    public Map() throws InterruptedException {
+    public Map(Signalisation signalisation) throws InterruptedException {
         //on instancie les routes
-        routes[0] = new Route(10, Direction.DROITE, "Route1");
-        routes[1] = new Route(10, Direction.DROITE, "Route2");
-        routes[2] = new Route(10, Direction.BAS, "Route3");
-        routes[3] = new Route(10, Direction.GAUCHE, "Route4");
-        routes[4] = new Route(10, Direction.HAUT, "Route5");
-        routes[5] = new Route(10, Direction.GAUCHE, "Route6");
-        routes[6] = new Route(10, Direction.HAUT, "Route7");
+        routes[0] = new Route(10, Direction.DROITE, "Route1", signalisation);
+        routes[1] = new Route(10, Direction.DROITE, "Route2", signalisation);
+        routes[2] = new Route(10, Direction.BAS, "Route3", signalisation);
+        routes[3] = new Route(10, Direction.GAUCHE, "Route4", signalisation);
+        routes[4] = new Route(10, Direction.HAUT, "Route5", signalisation);
+        routes[5] = new Route(10, Direction.GAUCHE, "Route6", signalisation);
+        routes[6] = new Route(10, Direction.HAUT, "Route7", signalisation);
 
         //on instancie les carrefours
         carrefours[0] = new Carrefour(routes[0]);

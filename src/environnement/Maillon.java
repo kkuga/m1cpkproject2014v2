@@ -43,7 +43,14 @@ public class Maillon {
 
     public Maillon getMaillon() {
 
-        if(getRoute().estDernierMaillon(this)) {
+        if(getRoute().estDernierMaillon(this))
+        {
+            /*QUand les deux voitures sont à 9 en position et que le feux est rouge, aucune voiture ne repart */
+
+            while(route.getCouleurSignalisation() == Feux.rouge)/*probleme!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+            {
+
+            }
             return route.getCarrefour().getRouteAleatoire().getPremierMallion();
         } else {
             return route.getNextMaillon(this);

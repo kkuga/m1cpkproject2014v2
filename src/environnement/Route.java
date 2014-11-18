@@ -1,5 +1,7 @@
 package environnement;
 
+import Thread.Signalisation;
+
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -12,8 +14,9 @@ public class Route {
     private int longueur;
     private Carrefour carrefour;
     private String nom;
+    private Signalisation signalisation;
 
-    public Route(int longueur, Direction direction, String nom) {
+    public Route(int longueur, Direction direction, String nom, Signalisation signalisation) {
         Direction direction1 = direction;
         this.longueur = longueur;
         this.maillons = new LinkedList();
@@ -22,6 +25,7 @@ public class Route {
         }
 
         this.nom = nom;
+        this.signalisation = signalisation;
     }
 
     public LinkedList<Maillon> getMaillons() {
@@ -82,5 +86,10 @@ public class Route {
         return "\t Route{" +
                 "nom='" + nom + '\'' +
                 '}';
+    }
+
+    public Feux getCouleurSignalisation()
+    {
+        return signalisation.getCouleur();
     }
 }

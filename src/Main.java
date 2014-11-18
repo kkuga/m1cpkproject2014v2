@@ -13,11 +13,13 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        Map map = new Map();
+        Signalisation signalisation = new Signalisation();
+
+
+        Map map = new Map(signalisation);
 
         Vehicule vehicule = new Vehicule(map.getMaillonAleatoireFromRouteAleatoire(), "Peugeot");
         Vehicule vehicule2 = new Vehicule(map.getMaillonAleatoireFromRouteAleatoire(), "Citroen");
-        Signalisation signalisation = new Signalisation(map.getRouteAleatoire());
 
         ThreadVehicule threadVehicule = new ThreadVehicule(vehicule);
         ThreadVehicule threadVehicule2 = new ThreadVehicule(vehicule2);
