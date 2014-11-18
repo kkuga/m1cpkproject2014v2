@@ -19,6 +19,7 @@ public class Signalisation extends Thread{
       if(this.couleur == Feux.rouge)
       {
           this.couleur = Feux.vert;
+
       }
       else
       {
