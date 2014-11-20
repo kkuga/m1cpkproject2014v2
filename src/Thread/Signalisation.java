@@ -51,7 +51,7 @@ public class Signalisation extends Thread{
             try {
                 sleep(7000);
             } catch (Exception e) {
-                System.out.println(e+"programme interrompu ");
+                System.out.println(e+"programme interrompue ");
             }
         }
   }
