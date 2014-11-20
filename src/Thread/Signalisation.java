@@ -33,7 +33,6 @@ public class Signalisation extends Thread{
       while(this.getCouleur() == Feux.rouge)
       {
           try{
-
               wait();
           }catch(InterruptedException e)
           {
