@@ -1,6 +1,6 @@
 package environnement;
 
-import Thread.Signalisation;
+import Thread.*;
 
 import java.util.LinkedList;
 import java.util.Random;
@@ -91,5 +91,9 @@ public class Route {
     public Feux getCouleurSignalisation()
     {
         return signalisation.getCouleur();
+    }
+
+    public Signalisation getSignalisation() {
+        return signalisation;
     }
 }

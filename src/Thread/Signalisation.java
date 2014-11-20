@@ -14,16 +14,31 @@ public class Signalisation extends Thread{
 
     }
 
-  public void setCouleur()
+  public synchronized void setCouleur()
   {
       if(this.couleur == Feux.rouge)
       {
           this.couleur = Feux.vert;
 
+          notifyAll();
       }
       else
       {
           this.couleur = Feux.rouge;
+      }
+  }
+
+  public synchronized void feuxVert()
+  {
+      while(this.getCouleur() == Feux.rouge)
+      {
+          try{
+
+              wait();
+          }catch(InterruptedException e)
+          {
+              System.out.println(e);
+          }
       }
   }
 

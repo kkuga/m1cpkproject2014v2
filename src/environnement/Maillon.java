@@ -1,5 +1,7 @@
 package environnement;
 
+import Thread.*;
+
 /**
  * Created by philprat on 09/10/2014.
  */
@@ -7,11 +9,13 @@ public class Maillon {
 
     private boolean isEmpty;
     private Route route;
+    private Signalisation signalisation;
 
     public Maillon(Route route)
     {
         this.route = route;
         isEmpty = true;
+        signalisation = this.route.getSignalisation();
     }
 
     public void voitureIn() {
@@ -45,17 +49,14 @@ public class Maillon {
 
         if(getRoute().estDernierMaillon(this))
         {
-            /*QUand les deux voitures sont à 9 en position et que le feux est rouge, aucune voiture ne repart */
+            signalisation.feuxVert();
 
-            while(route.getCouleurSignalisation() == Feux.rouge)/*probleme2!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-            {
-
-            }
             return route.getCarrefour().getRouteAleatoire().getPremierMallion();
         } else {
             return route.getNextMaillon(this);
         }
     }
+
 
 
     public int getNumeroMaillon()
