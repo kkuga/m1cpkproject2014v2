@@ -27,7 +27,7 @@ public class ThreadVehicule extends Thread {
             System.out.println(vehicule.toString());
 
             try {
-                sleep(1000);
+                sleep(vehicule.getVitesse());
             } catch (Exception e) {
                 System.out.println(e+"programme interrompu");
             }

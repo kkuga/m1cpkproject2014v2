@@ -2,6 +2,8 @@ package Thread;
 
 import environnement.Feux;
 
+import java.util.Random;
+
 /**
  * Created by kuga on 12/11/2014.
  */
@@ -11,7 +13,7 @@ public class Signalisation extends Thread{
 
     public Signalisation() {
 
-       /* Random r = new Random();
+        Random r = new Random();
         int i = r.nextInt();
 
         if(i%2 == 0)
@@ -22,9 +24,7 @@ public class Signalisation extends Thread{
         {
             this.couleur = Feux.vert;
         }
-        */
 
-        this.couleur = Feux.vert;
     }
 
   public synchronized void setCouleur()
@@ -41,10 +41,11 @@ public class Signalisation extends Thread{
       }
   }
 
-  public synchronized void feuxVert()
+  public synchronized void feuxVert(String nomVoiture, String numeroRoute)
   {
       while(this.getCouleur() == Feux.rouge)
       {
+          System.out.println("Feux rouge sur la route : "+numeroRoute+"\tla voiture : "+nomVoiture+" \t ne peux pas avancer");
           try{
               wait();
           }catch(InterruptedException e)
@@ -52,6 +53,7 @@ public class Signalisation extends Thread{
               System.out.println(e);
           }
       }
+      System.out.println("Feux vert sur la route : "+numeroRoute+"\tla voiture : "+nomVoiture+"\t peux avancer");
   }
 
   public void run()
@@ -59,7 +61,7 @@ public class Signalisation extends Thread{
         while(!isInterrupted())
         {
             this.setCouleur();
-            System.out.println(this.toString());
+
             try {
                 sleep(7000);
             } catch (Exception e) {
@@ -70,8 +72,8 @@ public class Signalisation extends Thread{
 
     @Override
     public String toString() {
-        return "Signalisation{" +
-                "couleur=" + couleur +
+        return "Signalisation{"+
+                "Feu rouge la voiture ne peut pas avancer"+
                 '}';
     }
 

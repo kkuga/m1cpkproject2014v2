@@ -45,12 +45,12 @@ public class Maillon {
         return route;
     }
 
-    public Maillon getMaillon() {
+    public Maillon getMaillon(String nomVoiture) {
 
         if(getRoute().estDernierMaillon(this))
         {
 
-            signalisation.feuxVert();
+            signalisation.feuxVert(nomVoiture, route.getNom());
 
             return route.getCarrefour().getRouteAleatoire().getPremierMallion();
         } else {

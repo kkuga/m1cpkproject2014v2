@@ -89,6 +89,10 @@ public class Route {
                 '}';
     }
 
+    public String getNom() {
+        return nom;
+    }
+
     public Feux getCouleurSignalisation()
     {
         return signalisation.getCouleur();

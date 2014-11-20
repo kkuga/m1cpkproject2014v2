@@ -1,7 +1,9 @@
 package environnement;
-import Thread.Signalisation;
+import Thread.*;
+import vehicule.Vehicule;
 
 import java.util.Random;
+import java.util.Scanner;
 
 
 /**
@@ -25,20 +27,30 @@ public class Map {
     private  static int NBSIGNALISATION = 7;
     private Route[] routes = new Route[NBROUTES];
     private Carrefour[] carrefours = new Carrefour[NBCARREFOUR];
-    private Signalisation signalisation;
+    private Signalisation[] signalisations = new Signalisation[NBSIGNALISATION];
 
-    public Map(Signalisation signalisation) throws InterruptedException {
+    public Map() throws InterruptedException {
+
+        Scanner sc = new Scanner(System.in);
 
         /*On instancie les signalisations */
 
+        signalisations[0] = new Signalisation();
+        signalisations[1] = new Signalisation();
+        signalisations[2] = new Signalisation();
+        signalisations[3] = new Signalisation();
+        signalisations[4] = new Signalisation();
+        signalisations[5] = new Signalisation();
+        signalisations[6] = new Signalisation();
+
         //on instancie les routes
-        routes[0] = new Route(10, Direction.DROITE, "Route1", signalisation);
-        routes[1] = new Route(10, Direction.DROITE, "Route2", signalisation);
-        routes[2] = new Route(10, Direction.BAS, "Route3", signalisation);
-        routes[3] = new Route(10, Direction.GAUCHE, "Route4", signalisation);
-        routes[4] = new Route(10, Direction.HAUT, "Route5", signalisation);
-        routes[5] = new Route(10, Direction.GAUCHE, "Route6", signalisation);
-        routes[6] = new Route(10, Direction.HAUT, "Route7", signalisation);
+        routes[0] = new Route(10, Direction.DROITE, "Route1", signalisations[0]);
+        routes[1] = new Route(10, Direction.DROITE, "Route2", signalisations[1]);
+        routes[2] = new Route(10, Direction.BAS, "Route3", signalisations[2]);
+        routes[3] = new Route(10, Direction.GAUCHE, "Route4", signalisations[3]);
+        routes[4] = new Route(10, Direction.HAUT, "Route5", signalisations[4]);
+        routes[5] = new Route(10, Direction.GAUCHE, "Route6", signalisations[5]);
+        routes[6] = new Route(10, Direction.HAUT, "Route7", signalisations[6]);
 
         //on instancie les carrefours
         carrefours[0] = new Carrefour(routes[0]);
@@ -60,6 +72,38 @@ public class Map {
         routes[5].setCarrefour(carrefours[5]);
         routes[6].setCarrefour(carrefours[0]);
 
+        //On créé les véhicules
+        Vehicule vehicule = new Vehicule(this.getMaillonAleatoireFromRouteAleatoire(), "Peugeot");
+        Vehicule vehicule2 = new Vehicule(this.getMaillonAleatoireFromRouteAleatoire(), "Citroen");
+
+
+        ThreadVehicule threadVehicule = new ThreadVehicule(vehicule);
+        ThreadVehicule threadVehicule2 = new ThreadVehicule(vehicule2);
+
+
+        //Lancement des threads
+        threadVehicule.start();
+        threadVehicule2.start();
+        for(int i = 0; i < 7; i++)
+        {
+            signalisations[i].start();
+        }
+
+        sc.next();
+
+        threadVehicule.interrupt();
+        threadVehicule2.interrupt();
+        for(int i = 0; i < 7; i++)
+        {
+            signalisations[i].interrupt();
+        }
+
+        threadVehicule.join();
+        threadVehicule2.join();
+        for(int i = 0; i < 7; i++)
+        {
+            signalisations[i].join();
+        }
 
     }
 
