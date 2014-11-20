@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
 
         Scanner sc = new Scanner(System.in);
-        
+
         Signalisation signalisation = new Signalisation();
 
         Map map = new Map(signalisation);
