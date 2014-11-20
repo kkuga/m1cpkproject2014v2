@@ -18,6 +18,7 @@ public class Route {
 
     public Route(int longueur, Direction direction, String nom, Signalisation signalisation) {
         Direction direction1 = direction;
+        this.signalisation = signalisation;
         this.longueur = longueur;
         this.maillons = new LinkedList();
         for(int i=0;i<this.longueur;i++) {
@@ -25,7 +26,7 @@ public class Route {
         }
 
         this.nom = nom;
-        this.signalisation = signalisation;
+
     }
 
     public LinkedList<Maillon> getMaillons() {

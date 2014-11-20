@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/ProjetReseau.iml" filepath="$PROJECT_DIR$/ProjetReseau.iml" />
       <module fileurl="file://$PROJECT_DIR$/m1cpkproject2014v5.iml" filepath="$PROJECT_DIR$/m1cpkproject2014v5.iml" />
     </modules>
   </component>

@@ -10,8 +10,21 @@ public class Signalisation extends Thread{
 
 
     public Signalisation() {
-        this.couleur = Feux.vert;
 
+       /* Random r = new Random();
+        int i = r.nextInt();
+
+        if(i%2 == 0)
+        {
+            this.couleur = Feux.rouge;
+        }
+        else
+        {
+            this.couleur = Feux.vert;
+        }
+        */
+
+        this.couleur = Feux.vert;
     }
 
   public synchronized void setCouleur()

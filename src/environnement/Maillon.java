@@ -49,6 +49,7 @@ public class Maillon {
 
         if(getRoute().estDernierMaillon(this))
         {
+
             signalisation.feuxVert();
 
             return route.getCarrefour().getRouteAleatoire().getPremierMallion();
